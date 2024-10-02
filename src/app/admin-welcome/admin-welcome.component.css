@@ -9,7 +9,7 @@
 }
 
 h1 {
-    color: #255453;
+    color: #240643;
     margin-bottom: 20px;
 }
 
@@ -35,7 +35,7 @@ h1 {
 }
 
 button {
-    background-color: #255453; 
+    background-color: #240643; 
     color: white; 
     padding: 10px 15px; 
     border: none; 
@@ -46,7 +46,7 @@ button {
 }
 
 button:hover {
-    background-color: #3e9392; 
+    background-color: #4b0d89; 
 }
 
 .logout {

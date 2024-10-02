@@ -3,7 +3,7 @@ h2 {
     margin-top: 20px; 
     margin-bottom: 20px; 
     font-size: 2rem; 
-    color: #255453; 
+    color: #240643; 
 }
 form {
     background-color: #f8f9fa; 
@@ -45,7 +45,7 @@ div div {
 }
 
 button {
-    background-color: #255453; 
+    background-color: #240643; 
     color: white; 
     padding: 10px 15px; 
     border: none; 
@@ -56,9 +56,10 @@ button {
 }
 
 button:hover {
-    background-color: #3e9392; 
+    background-color: #4b0d89; 
 }
 
 button:disabled {
-    background-color: #6c757d; 
+    background-color: #6c757d;
+    cursor: not-allowed; 
 }
