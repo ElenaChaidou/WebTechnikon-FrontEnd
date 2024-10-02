@@ -1,0 +1,103 @@
+<h2>Create New Owner</h2>
+
+<form [formGroup]="ownerForm" (ngSubmit)="createOwner()">
+  <div>
+    <label>Name:</label>
+    <input formControlName="name" />
+    <div *ngIf="ownerForm.controls['name'].invalid && ownerForm.controls['name'].touched">
+      Name is required
+    </div>
+  </div>
+
+  <div>
+    <label>Surname:</label>
+    <input formControlName="surName" />
+    <div *ngIf="ownerForm.controls['surName'].invalid && ownerForm.controls['surName'].touched">
+      Surname is required
+    </div>
+  </div>
+
+  <div>
+    <label>Username:</label>
+    <input formControlName="username" />
+    <div *ngIf="ownerForm.controls['username'].invalid && ownerForm.controls['username'].touched">
+      Username is required
+    </div>
+  </div>
+
+  <div>
+    <label>Password:</label>
+    <input type="password" formControlName="password" />
+    <div *ngIf="ownerForm.controls['password'].invalid && ownerForm.controls['password'].touched">
+      Password must be at least 4 characters and alphanumeric.
+    </div>
+  </div>
+
+  <div>
+    <label>Email:</label>
+    <input formControlName="email" />
+    <div *ngIf="ownerForm.controls['email'].invalid && ownerForm.controls['email'].touched">
+      Invalid email
+    </div>
+  </div>
+
+  <div>
+    <label>Phone Number:</label>
+    <input formControlName="phoneNumber" />
+    <div *ngIf="ownerForm.controls['phoneNumber'].invalid && ownerForm.controls['phoneNumber'].touched">
+      Phone number is required
+    </div>
+  </div>
+
+  <div>
+    <label>Address:</label>
+    <input formControlName="address" />
+    <div *ngIf="ownerForm.controls['address'].invalid && ownerForm.controls['address'].touched">
+      Address is required
+    </div>
+  </div>
+
+  <h3>Property Details</h3>
+
+  <div>
+    <label>Property Code:</label>
+    <input formControlName="propertyCode" />
+    <div *ngIf="ownerForm.controls['propertyCode'].invalid && ownerForm.controls['propertyCode'].touched">
+      Property Code is required
+    </div>
+  </div>
+
+  <div>
+    <label>Property Address:</label>
+    <input formControlName="propertyAddress" />
+    <div *ngIf="ownerForm.controls['propertyAddress'].invalid && ownerForm.controls['propertyAddress'].touched">
+      Property Address is required
+    </div>
+  </div>
+
+  <div>
+    <label>Year of Construction:</label>
+    <input formControlName="yearOfConstruction" />
+    <div *ngIf="ownerForm.controls['yearOfConstruction'].invalid && ownerForm.controls['yearOfConstruction'].touched">
+      Year of construction is required
+    </div>
+  </div>
+
+  <div>
+    <label>Property Type:</label>
+    <input formControlName="propertyType" />
+    <div *ngIf="ownerForm.controls['propertyType'].invalid && ownerForm.controls['propertyType'].touched">
+      Property Type is required
+    </div>
+  </div>
+
+  <div>
+    <label>E9 Code:</label>
+    <input formControlName="e9" />
+    <div *ngIf="ownerForm.controls['e9'].invalid && ownerForm.controls['e9'].touched">
+      E9 Code is required
+    </div>
+  </div>
+
+  <button type="submit" [disabled]="!ownerForm.valid">Create Owner</button>
+</form>

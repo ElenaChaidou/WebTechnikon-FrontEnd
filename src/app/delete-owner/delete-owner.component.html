@@ -1,0 +1,23 @@
+<!-- delete-owner.component.html -->
+<h2>Delete Owner</h2>
+
+<form [formGroup]="ownerForm" (ngSubmit)="getOwnerDetails()">
+  <div>
+    <label>Enter Owner ID to Delete:</label>
+    <input formControlName="ownerId" />
+    <button type="submit">Get Owner Details</button>
+  </div>
+</form>
+
+<!-- Display owner details if fetched -->
+<div *ngIf="ownerDetails">
+  <h3>Owner Details:</h3>
+  <p><strong>ID:</strong> {{ ownerDetails.id }}</p>
+  <p><strong>Name:</strong> {{ ownerDetails.name }}</p>
+  <p><strong>Surname:</strong> {{ ownerDetails.surName }}</p>
+  <p><strong>Username:</strong> {{ ownerDetails.username }}</p>
+  <p><strong>Email:</strong> {{ ownerDetails.email }}</p>
+  <p><strong>Phone Number:</strong> {{ ownerDetails.phoneNumber }}</p>
+  <!-- Add more details as necessary -->
+  <button (click)="deleteOwner()">Delete Owner</button>
+</div>

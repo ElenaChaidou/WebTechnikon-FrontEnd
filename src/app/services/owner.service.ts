@@ -1,5 +1,6 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -22,9 +23,12 @@ export class OwnerService {
     return this.http.get(urlWithId);
   }
 
- 
-  createOwner(ownerData: any) {
-    const createOwnerUrl = 'http://localhost:8080/WebTechnikon/resources/admin/createOwners';
-    return this.http.post(createOwnerUrl, ownerData);
+  private apiUrl = 'http://localhost:8080/WebTechnikon/resources/admin/createOwners';
+  createOwner(ownerData: any): Observable<any> {
+    return this.http.post(`${this.apiUrl}/owners`, ownerData);
+  }
+  private delUrl = 'http://localhost:8080/WebTechnikon/resources/admin/owner';
+  deleteOwner(id: number): Observable<any> {
+    return this.http.delete(`${this.delUrl}/${id}`);
   }
 }
