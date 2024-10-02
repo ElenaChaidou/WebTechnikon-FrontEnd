@@ -3,11 +3,12 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { OwnerService } from '../services/owner.service';
 import { JsonPipe } from '@angular/common';
 import { CommonModule } from '@angular/common'; 
+import { OwnerHomeComponent } from '../owner-home/owner-home.component';
 
 @Component({
   selector: 'app-owner',
   standalone: true,
-  imports: [ReactiveFormsModule, JsonPipe, CommonModule], 
+  imports: [ReactiveFormsModule, JsonPipe, CommonModule, OwnerHomeComponent], 
   templateUrl: './owner.component.html',
   styleUrls: ['./owner.component.css']
 })

@@ -1,1 +1,33 @@
-<p>repairs works!</p>
+<app-admin-home></app-admin-home>
+<h2>Active Repairs</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Repair ID</th>
+      <th>Repair Type</th>
+      <th>Description</th>
+      <th>Date of Submission</th>
+      <th>Proposed Start Date</th>
+      <th>Proposed End Date</th>
+      <th>Proposed Cost</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let repair of repairs">
+      <td>{{ repair.repairId }}</td>
+      <td>{{ repair.repairType }}</td>
+      <td>{{ repair.shortDescription }}</td>
+      <td>{{ repair.dateOfSubmission | date:'medium' }}</td>
+      <td>{{ repair.proposedDateOfStart | date:'medium' }}</td>
+      <td>{{ repair.proposedDateOfEnd | date:'medium' }}</td>
+      <td>{{ repair.proposedCost | currency }}</td>
+      <td>{{ repair.repairStatus }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<div *ngIf="repairs.length === 0">
+  <p>No active repairs found.</p>
+</div>

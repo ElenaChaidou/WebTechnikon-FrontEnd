@@ -3,11 +3,12 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common'; // Import CommonModule
 import { OwnerService } from '../services/owner.service';
+import { OwnerHomeComponent } from '../owner-home/owner-home.component';
 
 @Component({
   selector: 'app-delete-owner',
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule], // Add CommonModule here
+  imports: [ReactiveFormsModule, CommonModule, OwnerHomeComponent], // Add CommonModule here
   templateUrl: './delete-owner.component.html',
   styleUrls: ['./delete-owner.component.css']
 })

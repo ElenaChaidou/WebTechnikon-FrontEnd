@@ -2,11 +2,12 @@ import { Component, inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { OwnerService } from '../services/owner.service';
 import { CommonModule } from '@angular/common';
+import { OwnerHomeComponent } from '../owner-home/owner-home.component';
 
 @Component({
   selector: 'app-update-property',
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule],
+  imports: [ReactiveFormsModule, CommonModule, OwnerHomeComponent],
   templateUrl: './update-property.component.html',
   styleUrls: ['./update-property.component.css']
 })

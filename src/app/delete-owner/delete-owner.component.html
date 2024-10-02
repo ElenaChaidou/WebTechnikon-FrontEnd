@@ -1,3 +1,4 @@
+<app-owner-home></app-owner-home>
 <h2>Delete Owner</h2>
 
 <form [formGroup]="ownerForm" (ngSubmit)="getOwnerDetails()">
@@ -8,7 +9,7 @@
   </div>
 </form>
 
-<div *ngIf="ownerDetails">
+<div *ngIf="ownerDetails" class="owner-details">
   <h3>Owner Details:</h3>
   <p><strong>ID:</strong> {{ ownerDetails.id }}</p>
   <p><strong>Name:</strong> {{ ownerDetails.name }}</p>
@@ -16,6 +17,6 @@
   <p><strong>Username:</strong> {{ ownerDetails.username }}</p>
   <p><strong>Email:</strong> {{ ownerDetails.email }}</p>
   <p><strong>Phone Number:</strong> {{ ownerDetails.phoneNumber }}</p>
- 
-  <button (click)="deleteOwner()">Delete Owner</button>
+  
+  <button class="delete" (click)="deleteOwner()">Delete Owner</button>
 </div>

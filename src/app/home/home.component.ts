@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { OwnerHomeComponent } from '../owner-home/owner-home.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
+  imports: [OwnerHomeComponent],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })

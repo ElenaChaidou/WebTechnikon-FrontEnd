@@ -2,11 +2,12 @@ import { Component, inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { OwnerService } from '../services/owner.service';
 import { CommonModule } from '@angular/common';
+import { OwnerHomeComponent } from '../owner-home/owner-home.component';
 
 @Component({
   selector: 'app-create-property',
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule],
+  imports: [ReactiveFormsModule, CommonModule, OwnerHomeComponent],
   templateUrl: './create-property.component.html',
   styleUrls: ['./create-property.component.css']
 })
@@ -19,20 +20,17 @@ export class CreatePropertyComponent implements OnInit {
     this.initializeForm();
   }
 
-  // Initialize the reactive form
   initializeForm(): void {
     this.propertyForm = this.fb.group({
-      ownerId: ['', Validators.required], // Owner ID
-      propertyCode: ['', Validators.required], // Property code
-      address: ['', Validators.required], // Address
-      yearOfConstruction: ['', [Validators.required, Validators.min(1800)]], // Year of construction
-      propertyType: ['', Validators.required], // Property type
-      e9: ['', Validators.required], // E9 code
-      deletedProperty: [false] // Deleted flag for property
+      ownerId: ['', Validators.required], 
+      propertyCode: ['', Validators.required], 
+      address: ['', Validators.required], 
+      yearOfConstruction: ['', [Validators.required, Validators.min(1800)]],
+      propertyType: ['', Validators.required], 
+      e9: ['', Validators.required], 
+      deletedProperty: [false] 
     });
   }
-
-  // Submit property data
   onSubmit(): void {
     if (this.propertyForm.valid) {
       const propertyData = {
@@ -41,7 +39,7 @@ export class CreatePropertyComponent implements OnInit {
         yearOfConstruction: this.propertyForm.value.yearOfConstruction,
         propertyType: this.propertyForm.value.propertyType,
         e9: this.propertyForm.value.e9,
-        deletedProperty: false // Default for new properties
+        deletedProperty: false 
       };
 
       const ownerId = this.propertyForm.value.ownerId;
@@ -50,7 +48,7 @@ export class CreatePropertyComponent implements OnInit {
         next: (response) => {
           console.log('Property created successfully', response);
           alert('Property created successfully!');
-          this.propertyForm.reset(); // Reset the form after submission
+          this.propertyForm.reset(); 
         },
         error: (err) => {
           console.error('Error creating property:', err);
