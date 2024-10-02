@@ -11,8 +11,13 @@ export class AdminService {
 
   private baseUrl = 'http://localhost:8080/WebTechnikon/resources/admin'; 
 
-
-  getPendingRepairs(): Observable<any> {
+  
+  getActiveRepairs(): Observable<any> {
     return this.http.get(`${this.baseUrl}/active-repairs`);
+  }
+
+ 
+  getPendingRepairs(): Observable<any> {
+    return this.http.get(`${this.baseUrl}/repairs/pending`);
   }
 }

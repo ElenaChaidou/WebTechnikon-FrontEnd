@@ -14,11 +14,11 @@ export class HomeComponent {
 
   // Μετάβαση στη σελίδα Admin
   goToAdmin() {
-    this.router.navigate(['/admin-home']);
+    this.router.navigate(['/admin-welcome']);
   }
 
   // Μετάβαση στη σελίδα Owner
   goToOwner() {
-    this.router.navigate(['/owner-home']);
+    this.router.navigate(['/owner-welcome']);
   }
 }

@@ -1,32 +1,45 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { AdminService } from '../services/admin.service'; // Adjust the import path as needed
-import { CommonModule } from '@angular/common'; // Import CommonModule
+import { AdminService } from '../services/admin.service'; 
+import { CommonModule } from '@angular/common'; 
 import { AdminHomeComponent } from '../admin-home/admin-home.component';
 
 @Component({
   selector: 'app-repairs',
-  standalone: true, // Indicate it's a standalone component
-  imports: [CommonModule, AdminHomeComponent], // Import CommonModule here
+  standalone: true, 
+  imports: [CommonModule, AdminHomeComponent], 
   templateUrl: './repairs.component.html',
   styleUrls: ['./repairs.component.css']
 })
 export class RepairsComponent implements OnInit {
-  repairs: any[] = []; // Array to hold the active repairs
+  activeRepairs: any[] = [];  
+  pendingRepairs: any[] = [];  
   adminService = inject(AdminService);
 
   ngOnInit(): void {
-    this.getActiveRepairs(); // Fetch active repairs on component initialization
+    this.getActiveRepairs(); 
+    this.getPendingRepairs(); 
   }
 
-  // Fetch the active repairs from the service
   getActiveRepairs(): void {
-    this.adminService.getPendingRepairs().subscribe({
+    this.adminService.getActiveRepairs().subscribe({
       next: (data) => {
-        this.repairs = data; // Set the repairs data
+        this.activeRepairs = data; 
       },
       error: (err) => {
         console.error('Error fetching active repairs:', err);
         alert('Could not fetch active repairs. Please try again later.');
+      }
+    });
+  }
+
+  getPendingRepairs(): void {
+    this.adminService.getPendingRepairs().subscribe({
+      next: (data) => {
+        this.pendingRepairs = data; 
+      },
+      error: (err) => {
+        console.error('Error fetching pending repairs:', err);
+        alert('Could not fetch pending repairs. Please try again later.');
       }
     });
   }

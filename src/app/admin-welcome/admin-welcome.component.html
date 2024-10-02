@@ -1,0 +1,17 @@
+<app-admin-home></app-admin-home>
+
+<div class="welcome-container">
+    <h1>Welcome, {{ adminName }}!</h1>
+  
+    <div class="action-box">
+      <!-- <h2>Quick Actions</h2> -->
+      <div class="button-group">
+        <button (click)="navigateTo('Notifications')">Notifications</button>
+        <button (click)="navigateTo('Messages')">Messages</button>
+        <button (click)="navigateTo('My Profile')">My Profile</button>
+      </div>
+    </div>
+  
+    <button class="logout" (click)="logout()">Logout</button>
+  </div>
+  

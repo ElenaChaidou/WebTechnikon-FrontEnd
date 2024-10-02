@@ -47,11 +47,13 @@ button:hover {
 div > h3 {
     margin-top: 20px; 
     color: #255453; 
+    text-align: center;
 }
 
 p {
     margin: 5px 0; 
     color: #555; 
+    text-align: center;
 }
 
 pre {

@@ -15,18 +15,18 @@ export class OwnerService {
   }
 
   getOwnerById(id: number): Observable<any> {
-    const urlWithId = `${this.baseUrl}/${id}`; // Directly construct the URL
+    const urlWithId = `${this.baseUrl}/${id}`; 
     return this.http.get(urlWithId);
   }
 
   createPropertyForOwner(ownerId: number, propertyData: any): Observable<any> {
-    const url = `${this.baseUrl}/${ownerId}/properties`; // Construct the URL correctly
-    return this.http.post(url, propertyData); // POST request to API
+    const url = `${this.baseUrl}/${ownerId}/properties`; 
+    return this.http.post(url, propertyData); 
   }
 
 
   getPropertyById(propertyId: number): Observable<any> {
-    return this.http.get(`${this.baseUrl}/properties/propertyId/${propertyId}`); // Adjusted URL as per your format
+    return this.http.get(`${this.baseUrl}/properties/propertyId/${propertyId}`); 
   }
 
   // Update property
@@ -36,7 +36,7 @@ export class OwnerService {
 
   
   deleteOwner(id: number): Observable<any> {
-    const url = `${this.baseUrl}/${id}`; // Construct delete URL
+    const url = `${this.baseUrl}/${id}`; 
     return this.http.delete(url);
   }
 

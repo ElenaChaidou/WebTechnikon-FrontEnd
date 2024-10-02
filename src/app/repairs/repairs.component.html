@@ -1,33 +1,71 @@
 <app-admin-home></app-admin-home>
+
 <h2>Active Repairs</h2>
 
-<table>
-  <thead>
-    <tr>
-      <th>Repair ID</th>
-      <th>Repair Type</th>
-      <th>Description</th>
-      <th>Date of Submission</th>
-      <th>Proposed Start Date</th>
-      <th>Proposed End Date</th>
-      <th>Proposed Cost</th>
-      <th>Status</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let repair of repairs">
-      <td>{{ repair.repairId }}</td>
-      <td>{{ repair.repairType }}</td>
-      <td>{{ repair.shortDescription }}</td>
-      <td>{{ repair.dateOfSubmission | date:'medium' }}</td>
-      <td>{{ repair.proposedDateOfStart | date:'medium' }}</td>
-      <td>{{ repair.proposedDateOfEnd | date:'medium' }}</td>
-      <td>{{ repair.proposedCost | currency }}</td>
-      <td>{{ repair.repairStatus }}</td>
-    </tr>
-  </tbody>
-</table>
+<div class="repairs-container">
+  <table>
+    <thead>
+      <tr>
+        <th>Repair ID</th>
+        <th>Repair Type</th>
+        <th>Description</th>
+        <th>Date of Submission</th>
+        <th>Proposed Start Date</th>
+        <th>Proposed End Date</th>
+        <th>Proposed Cost</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let repair of activeRepairs">
+        <td>{{ repair.repairId }}</td>
+        <td>{{ repair.repairType }}</td>
+        <td>{{ repair.shortDescription }}</td>
+        <td>{{ repair.dateOfSubmission | date:'medium' }}</td>
+        <td>{{ repair.proposedDateOfStart | date:'medium' }}</td>
+        <td>{{ repair.proposedDateOfEnd | date:'medium' }}</td>
+        <td>{{ repair.proposedCost | currency }}</td>
+        <td>{{ repair.repairStatus }}</td>
+      </tr>
+    </tbody>
+  </table>
 
-<div *ngIf="repairs.length === 0">
-  <p>No active repairs found.</p>
+  <div *ngIf="activeRepairs.length === 0" class="no-repairs-message">
+    <p>No active repairs found.</p>
+  </div>
+</div>
+
+<h2>Pending Repairs</h2>
+
+<div class="repairs-container">
+  <table>
+    <thead>
+      <tr>
+        <th>Repair ID</th>
+        <th>Repair Type</th>
+        <th>Description</th>
+        <th>Date of Submission</th>
+        <th>Proposed Start Date</th>
+        <th>Proposed End Date</th>
+        <th>Proposed Cost</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let repair of pendingRepairs">
+        <td>{{ repair.repairId }}</td>
+        <td>{{ repair.repairType }}</td>
+        <td>{{ repair.shortDescription }}</td>
+        <td>{{ repair.dateOfSubmission | date:'medium' }}</td>
+        <td>{{ repair.proposedDateOfStart | date:'medium' }}</td>
+        <td>{{ repair.proposedDateOfEnd | date:'medium' }}</td>
+        <td>{{ repair.proposedCost | currency }}</td>
+        <td>{{ repair.repairStatus }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div *ngIf="pendingRepairs.length === 0" class="no-repairs-message">
+    <p>No pending repairs found.</p>
+  </div>
 </div>

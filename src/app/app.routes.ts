@@ -8,6 +8,8 @@ import { CreatePropertyComponent } from './create-property/create-property.compo
 import { DeleteOwnerComponent } from './delete-owner/delete-owner.component';
 import { UpdatePropertyComponent } from './update-property/update-property.component';
 import { RepairsComponent } from './repairs/repairs.component';
+import { OwnerWelcomeComponent } from './owner-welcome/owner-welcome.component';
+import { AdminWelcomeComponent } from './admin-welcome/admin-welcome.component';
 // import { UpdateOwnerComponent } from './update-owner/update-owner.component';
 // import { CreateOwnerComponent } from './create-owner/create-owner.component';
 
@@ -21,6 +23,8 @@ export const routes: Routes = [
   { path: 'delete-owner', component: DeleteOwnerComponent },
   // { path: 'create-owner', component: CreateOwnerComponent },
   // { path: 'update-owner', component: UpdateOwnerComponent },
+  { path: 'owner-welcome', component: OwnerWelcomeComponent },
+  { path: 'admin-welcome', component: AdminWelcomeComponent },
   { path: 'repairs', component: RepairsComponent },
   { path: 'home', component: HomeComponent }, 
   { path: '', redirectTo: '/owner-home', pathMatch: 'full' }
