@@ -1,0 +1,37 @@
+<h2>Update Property</h2>
+
+<form [formGroup]="propertyForm" (ngSubmit)="updateProperty()">
+  <div>
+    <label for="propertyId">Property ID:</label>
+    <input id="propertyId" formControlName="propertyId" type="number" (change)="fetchProperty()" />
+    <div *ngIf="propertyForm.controls['propertyId'].invalid && propertyForm.controls['propertyId'].touched">
+      Property ID is required.
+    </div>
+  </div>
+
+  <div>
+    <label for="address">Property Address:</label>
+    <input id="address" formControlName="address" type="text" />
+    <div *ngIf="propertyForm.controls['address'].invalid && propertyForm.controls['address'].touched">
+      Address is required.
+    </div>
+  </div>
+
+  <div>
+    <label for="yearOfConstruction">Year of Construction:</label>
+    <input id="yearOfConstruction" formControlName="yearOfConstruction" type="number" />
+    <div *ngIf="propertyForm.controls['yearOfConstruction'].invalid && propertyForm.controls['yearOfConstruction'].touched">
+      Year of Construction must be a valid year (after 1800).
+    </div>
+  </div>
+
+  <div>
+    <label for="propertyType">Property Type:</label>
+    <input id="propertyType" formControlName="propertyType" type="text" />
+    <div *ngIf="propertyForm.controls['propertyType'].invalid && propertyForm.controls['propertyType'].touched">
+      Property Type is required.
+    </div>
+  </div>
+
+  <button type="submit" [disabled]="propertyForm.invalid">Update Property</button>
+</form>

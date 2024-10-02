@@ -8,27 +8,36 @@ import { Observable } from 'rxjs';
 export class OwnerService {
   http = inject(HttpClient);
 
-  url = 'http://localhost:8080/WebTechnikon/resources/owners'; 
+  private baseUrl = 'http://localhost:8080/WebTechnikon/resources/owners'; 
 
-  getOwners() {
-    
-    return this.http.get(this.url);
+  getOwners(): Observable<any> {
+    return this.http.get(this.baseUrl);
   }
 
-  
-  url2 = 'http://localhost:8080/WebTechnikon/resources/owners/{id}';
-  getOwnerById(id: number) {
-    
-    const urlWithId = this.url2.replace('{id}', id.toString());
+  getOwnerById(id: number): Observable<any> {
+    const urlWithId = `${this.baseUrl}/${id}`; // Directly construct the URL
     return this.http.get(urlWithId);
   }
 
-  private apiUrl = 'http://localhost:8080/WebTechnikon/resources/admin/createOwners';
-  createOwner(ownerData: any): Observable<any> {
-    return this.http.post(`${this.apiUrl}/owners`, ownerData);
+  createPropertyForOwner(ownerId: number, propertyData: any): Observable<any> {
+    const url = `${this.baseUrl}/${ownerId}/properties`; // Construct the URL correctly
+    return this.http.post(url, propertyData); // POST request to API
   }
-  private delUrl = 'http://localhost:8080/WebTechnikon/resources/admin/owner';
+
+
+  getPropertyById(propertyId: number): Observable<any> {
+    return this.http.get(`${this.baseUrl}/properties/propertyId/${propertyId}`); // Adjusted URL as per your format
+  }
+
+  // Update property
+  updateProperty(propertyId: number, propertyData: any): Observable<any> {
+    return this.http.put(`${this.baseUrl}/properties/${propertyId}`, propertyData);
+  }
+
+  
   deleteOwner(id: number): Observable<any> {
-    return this.http.delete(`${this.delUrl}/${id}`);
+    const url = `${this.baseUrl}/${id}`; // Construct delete URL
+    return this.http.delete(url);
   }
+
 }
