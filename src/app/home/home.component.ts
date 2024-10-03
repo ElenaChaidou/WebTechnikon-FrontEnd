@@ -14,7 +14,7 @@ export class HomeComponent {
 
   // Μετάβαση στη σελίδα Admin
   goToAdmin() {
-    this.router.navigate(['/admin-welcome']);
+    this.router.navigate(['/repairs']);
   }
 
   // Μετάβαση στη σελίδα Owner

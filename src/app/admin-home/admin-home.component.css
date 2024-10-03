@@ -5,6 +5,13 @@
     align-items: center; 
     justify-content: space-between; 
 }
+/* .navbar1 {
+    background-color: #240643; 
+    padding: 10px 20px;
+    display: flex; 
+    align-items: center; 
+    justify-content: space-between; 
+} */
 
 .navbar ul {
     list-style: none;

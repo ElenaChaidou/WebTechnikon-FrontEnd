@@ -16,13 +16,4 @@ import { OwnerHomeComponent } from '../owner-home/owner-home.component';
       this.ownerName = 'Elena'; 
     }
 
-  
-    navigateTo(destination: string): void {
-      console.log(`Navigating to ${destination}`);
-    }
-  
-    logout(): void {
-      console.log('Logging out...');
-    }
-
 }
